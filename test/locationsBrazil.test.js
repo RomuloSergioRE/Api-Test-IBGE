@@ -4,7 +4,7 @@ const baseURL = 'https://servicodados.ibge.gov.br/api/v1';
 
 describe('States of Brazil', () => {
 
-    it('Deve retorna todos os estados do brasil que são 27 no total', async () => {
+    it('Should return all 27 states of Brazil', async () => {
 
         const res = await request(baseURL)
             .get('/localidades/estados');
@@ -13,7 +13,7 @@ describe('States of Brazil', () => {
         expect(res.body).toBeDefined();
         expect(res.body).toHaveLength(27);
     })
-    it('Deve retorna o estado do Ceará pelo ID', async () => {
+    it('Should return the state of Ceará by ID', async () => {
 
         const idState = 23;
 
@@ -26,7 +26,7 @@ describe('States of Brazil', () => {
         console.log(res.body)
 
     })
-    it('Deve verificar o nome da região do estado do Ceará é Nordeste, ', async () => {
+    it('Should verify that the region name of the state of Ceará is Northeast', async () => {
 
         const idState = 23;
 
@@ -44,7 +44,7 @@ describe('States of Brazil', () => {
 
 describe('Regions of Brazil', () => {
 
-    it('Deve conter as 5 regioes do Brasil', async () => {
+    it('Should contain the 5 regions of Brazil', async () => {
 
         const res = await request(baseURL)
             .get('/localidades/regioes');
@@ -53,7 +53,7 @@ describe('Regions of Brazil', () => {
         expect(res.body).toBeDefined();
         expect(res.body).toHaveLength(5)
     })
-    it('Deve conter o nome e sigla corretas da região Centro-Oeste/CO', async () => {
+    it('Should contain the correct name and abbreviation of the Centro-Oeste/CO region', async () => {
 
         const res = await request(baseURL)
             .get(`/localidades/regioes/`);
@@ -69,7 +69,7 @@ describe('Regions of Brazil', () => {
             ])
         );
     })
-    it('Deve retornar todos os 7 estados da região Norte', async () => {
+    it('Should return all 7 states of the North region', async () => {
 
         const idRegion = 1;
 
@@ -80,7 +80,7 @@ describe('Regions of Brazil', () => {
         expect(res.body).toBeDefined();
         expect(res.body).toHaveLength(7);
     })
-    it('Deve verificar se a estado do Alagoas/AL é da região Nordeste', async () => {
+    it('Should verify that the state of Alagoas/AL belongs to the Northeast region', async () => {
 
         const idRegion = 2;
 
